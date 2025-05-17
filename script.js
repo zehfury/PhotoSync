@@ -51,6 +51,7 @@ const layoutPoses = { A: 3, B: 4, C: 2, D: 6 };
 // Frame color options with gradients
 const frameColorOptions = [
     // Solid colors
+    '#000000', // Added black as first option
     '#fff', '#f8bbd0', '#e1bee7', '#c5cae9', '#b3e5fc', '#c8e6c9', '#fff9c4', '#ffccbc',
     // Gradients (linear-gradient)
     'linear-gradient(45deg, #ff9a9e, #fad0c4)',
@@ -391,6 +392,7 @@ function renderPhotoStrip() {
     const strip = document.createElement('div');
     strip.className = 'photo-strip';
     strip.style.setProperty('--frame-color', selectedFrameColor);
+    
     // Set a slightly darker border for brilliance
     let borderColor = selectedFrameColor;
     try {
@@ -403,11 +405,13 @@ function renderPhotoStrip() {
         }
     } catch(e) {}
     strip.style.setProperty('--frame-border', borderColor);
+    
     // Set photo shape
     let photoRadius = '16px';
     if (selectedShape === 'square') photoRadius = '0';
     else if (selectedShape === 'circle') photoRadius = '50%';
     strip.style.setProperty('--photo-radius', photoRadius);
+    
     // Add photos
     capturedPhotos.forEach((photo, idx) => {
         const photoWrapper = document.createElement('div');
@@ -416,6 +420,7 @@ function renderPhotoStrip() {
         img.className = 'strip-photo';
         img.src = photo;
         photoWrapper.appendChild(img);
+        
         // Sticker for this photo
         if (selectedSticker) {
             const sticker = document.createElement('span');
@@ -428,10 +433,18 @@ function renderPhotoStrip() {
         }
         strip.appendChild(photoWrapper);
     });
+    
     // Logo and date at the bottom
     if (selectedLogo || addDate) {
         const logoDiv = document.createElement('div');
         logoDiv.className = 'strip-logo';
+        
+        // Set text color based on frame color
+        const isDarkFrame = selectedFrameColor === '#000000' || 
+                          (selectedFrameColor.startsWith('linear-gradient') && 
+                           selectedFrameColor.includes('#000000'));
+        logoDiv.style.color = isDarkFrame ? '#ffffff' : '#000000';
+        
         // Translation and font
         let logoText = '';
         if (selectedLogo === 'ENG') {
@@ -452,7 +465,7 @@ function renderPhotoStrip() {
             const dateDiv = document.createElement('div');
             dateDiv.className = 'strip-date';
             dateDiv.style.fontSize = '0.9rem';
-            dateDiv.style.color = '#666';
+            dateDiv.style.color = isDarkFrame ? '#ffffff' : '#666666';
             dateDiv.style.marginTop = '7px';
             dateDiv.textContent = new Date().toLocaleDateString();
             strip.appendChild(dateDiv);
@@ -582,7 +595,10 @@ function downloadComposite() {
 
     // Add logo text with exact styling from preview
     ctx.font = 'bold 48px Poppins, Arial, sans-serif';
-    ctx.fillStyle = '#000000'; // Black color to match preview
+    // Determine if the frame is dark
+    const isDarkFrame = selectedFrameColor === '#000000' ||
+        (selectedFrameColor.startsWith('linear-gradient') && selectedFrameColor.includes('#000000'));
+    ctx.fillStyle = isDarkFrame ? '#ffffff' : '#000000';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     let logoText = '';
@@ -598,7 +614,10 @@ function downloadComposite() {
     // Add date with exact styling from preview
     if (addDate) {
         ctx.font = '32px Poppins, Arial, sans-serif';
-        ctx.fillStyle = '#000000'; // Black color to match preview
+        // Determine if the frame is dark
+        const isDarkFrame = selectedFrameColor === '#000000' ||
+            (selectedFrameColor.startsWith('linear-gradient') && selectedFrameColor.includes('#000000'));
+        ctx.fillStyle = isDarkFrame ? '#ffffff' : '#000000';
         const date = new Date().toLocaleDateString();
         const dateY = stripHeight - 40; // Position closer to bottom
         ctx.fillText(date, exportWidth/2, dateY);
@@ -640,6 +659,7 @@ if (backToLayoutBtn) {
         layoutSection.classList.add('active');
     });
 }
+
 // Add Back to Camera button functionality
 const backToCameraBtn = document.getElementById('back-to-camera-btn');
 if (backToCameraBtn) {
