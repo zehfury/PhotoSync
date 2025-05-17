@@ -51,6 +51,8 @@ h1 {
     width: 100%;
     height: auto;
     display: block;
+    transform: scaleX(-1);
+
 }
 
 .controls {
@@ -635,4 +637,7 @@ body, html {
     height: 100%;
     object-fit: cover;
     display: block;
+} 
+#canvas {
+    transform: scaleX(-1);
 } 
