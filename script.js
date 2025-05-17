@@ -640,3 +640,11 @@ if (backToLayoutBtn) {
         layoutSection.classList.add('active');
     });
 }
+// Add Back to Camera button functionality
+const backToCameraBtn = document.getElementById('back-to-camera-btn');
+if (backToCameraBtn) {
+    backToCameraBtn.addEventListener('click', () => {
+        customizeSection.classList.remove('active');
+        cameraSection.classList.add('active');
+    });
+}
