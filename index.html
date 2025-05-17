@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhotoSync - Next-Gen Photobooth Experience</title>
+    <link rel="stylesheet" href="landing.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-follower"></div>
+    <div class="cursor-dot"></div>
+
+ <!-- Navigation -->
+<nav class="navbar glass">
+    <div class="nav-container">
+        <div class="logo-wrapper">
+            <img src="logo.png" alt="PhotoSync Logo" class="site-logo">
+            <a href="#" class="logo">PhotoSync</a>
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#features-highlight">Why PhotoSync</a>
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="glitch-text">Capture Moments,<br>Create Memories</h1>
+            <p>Experience the next generation of photobooth technology with our advanced web-based solution.</p>
+            <div class="hero-buttons">
+                <a href="photobooth.html" class="btn primary">Try PhotoSync</a>
+                <a href="#features" class="btn secondary">Learn More</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="counter">1,234</span>
+                    <span class="label">Photos Taken</span>
+                </div>
+                <div class="stat">
+                    <span class="counter">567</span>
+                    <span class="label">Happy Users</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="device-frame">
+                <img src="landing.jpg" alt="PhotoSync in action">
+                <div class="device-frame-overlay"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2>Amazing Features</h2>
+        <div class="features-grid">
+            <div class="feature-card glass">
+                <div class="feature-icon">
+                    <i class="fas fa-magic"></i>
+                </div>
+                <h3>Advanced Filters</h3>
+                <p>Transform your photos with our collection of professional filters and effects.</p>
+                <div class="feature-demo">
+                    <img src="filter-demo.gif" alt="Filter Demo">
+                </div>
+            </div>
+            <div class="feature-card glass">
+                <div class="feature-icon">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <h3>Social Sharing</h3>
+                <p>Share your memories instantly with friends and family on social media.</p>
+                <div class="feature-demo">
+                    <img src="share-demo.gif" alt="Share Demo">
+                </div>
+            </div>
+            <div class="feature-card glass">
+                <div class="feature-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Customization</h3>
+                <p>Personalize your photo strips with frames, stickers, and custom layouts.</p>
+                <div class="feature-demo">
+                    <img src="customize-demo.gif" alt="Customize Demo">
+                </div>
+            </div>
+            <div class="feature-card glass">
+                <div class="feature-icon">
+                    <i class="fas fa-cloud-download-alt"></i>
+                </div>
+                <h3>Easy Download</h3>
+                <p>Download your photos in high quality or save entire photo sessions.</p>
+                <div class="feature-demo">
+                    <img src="download-demo.gif" alt="Download Demo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step glass">
+                <div class="step-number">1</div>
+                <h3>Choose Layout</h3>
+                <p>Select from multiple photo strip layouts to match your style.</p>
+                <div class="step-image-align">
+                    <img src="step1.jpg" alt="Choose Layout">
+                </div>
+            </div>
+            <div class="step glass">
+                <div class="step-number">2</div>
+                <h3>Take Photos</h3>
+                <p>Use our timer or burst mode to capture the perfect moments.</p>
+                <div class="step-image-align">
+                    <img src="step2.jpg" alt="Take Photos">
+                </div>
+            </div>
+            <div class="step glass">
+                <div class="step-number">3</div>
+                <h3>Customize</h3>
+                <p>Add filters, stickers, and customize your photo strip.</p>
+                <div class="step-image-align">
+                    <img src="step3.jpg" alt="Customize">
+                </div>
+            </div>
+            <div class="step glass">
+                <div class="step-number">4</div>
+                <h3>Share & Save</h3>
+                <p>Download your photos or share them directly to social media.</p>
+                <div class="step-image-align">
+                    <img src="step4.jpg" alt="Share & Save">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+   <section id="gallery" class="gallery">
+        <h2>Photo Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item glass">
+                <img src="gallery1.jpg" alt="Gallery Image" class="gallery-img-small">
+                <div class="gallery-overlay">
+                    <h3>Summer Vibes</h3>
+                    <p>Vintage Filter</p>
+                </div>
+            </div> 
+            <!-- Add more gallery items -->
+        </div>
+    </section>
+
+    <!-- Features Highlight Section -->
+    <section id="features-highlight" class="features glass">
+        <h2>Why Choose PhotoSync?</h2>
+        <div class="features-highlight-grid">
+            <div class="highlight-card glass">
+                <i class="fas fa-bolt"></i>
+                <h3>Instant Photos</h3>
+                <p>Take and customize your photos in seconds with our high-speed capture system.</p>
+            </div>
+            <div class="highlight-card glass">
+                <i class="fas fa-magic"></i>
+                <h3>Creative Filters</h3>
+                <p>Transform your photos with our collection of beautiful filters and effects.</p>
+            </div>
+            <div class="highlight-card glass">
+                <i class="fas fa-smile"></i>
+                <h3>Fun Stickers</h3>
+                <p>Add personality to your photos with our collection of cute and trendy stickers.</p>
+            </div>
+            <div class="highlight-card glass">
+                <i class="fas fa-share-alt"></i>
+                <h3>Easy Sharing</h3>
+                <p>Download and share your photo strips instantly in high quality.</p>
+            </div>
+        </div>
+        <div class="cta-container">
+            <a href="photobooth.html" class="btn primary">Try Now</a>
+        </div>
+    </section>
+
+    <!-- Updated Footer -->
+    <footer class="footer glass">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PhotoSync</h3>
+                <p>Creating memories that last forever</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#features-highlight">Why PhotoSync</a>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 PhotoSync. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="landing.js"></script>
+</body>
+</html> 
